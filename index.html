@@ -84,6 +84,10 @@
           </nav>
           <button class="botao CriarConta">criar conta</button>
           <button class="botao Entrar">Entrar</button>
+          <!-- CARRINHO -->
+<div class="carrinho">
+    🛒 <span id="contadorCarrinho">0</span>
+</div>
         </header>
       </section>
       <section class="endereco">
@@ -127,7 +131,25 @@
             </button>
           </form>
           <div id="popupReceita" class="popup">
-            <div class="popup-conteudo"></div>
+    <div class="popup-conteudo"></div>
+</div>
+
+<div id="popupCarrinho" class="popup">
+    <div class="popup-conteudo">
+
+        <span id="fecharCarrinho" class="fechar">&times;</span>
+
+        <h2>Meu Carrinho</h2>
+
+        <div id="listaCarrinho"></div>
+
+        <button id="finalizarPedido" class="meal-card-button">
+            Finalizar Pedido
+        </button>
+
+    </div>
+</div>
+          
           </div>
         </div>
       </section>
