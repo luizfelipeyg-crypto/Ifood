@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IFOOD API</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="container">
+      <h1>IFOOD API</h1>
+      <p>Interface para consulta da API de restaurantes e cardápios</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Busca de restaurantes -->
+    <form id="form-restaurantes" class="busca">
+      <input id="busca-restaurantes" type="search" placeholder="Buscar restaurantes por nome ou termo" aria-label="Buscar restaurantes">
+      <button type="submit" class="btn btn-primario">Buscar</button>
+      <button type="button" id="btn-listar" class="btn btn-secundario">Listar todos</button>
+    </form>
+
+    <!-- Restaurantes -->
+    <section>
+      <h2>Restaurantes</h2>
+      <div id="lista-restaurantes" class="estado-wrap"></div>
+      <nav id="paginacao-restaurantes" class="paginacao" aria-label="Paginação de restaurantes"></nav>
+    </section>
+
+    <!-- Cardápio / produtos -->
+    <section id="secao-produtos">
+      <h2 id="titulo-produtos">Produtos</h2>
+      <form id="form-produtos" class="busca busca-produtos">
+        <input id="busca-produtos" type="search" placeholder="Buscar produtos por termo" aria-label="Buscar produtos">
+        <button type="submit" class="btn btn-primario">Buscar produtos</button>
+      </form>
+      <div id="lista-produtos" class="estado-wrap"></div>
+      <nav id="paginacao-produtos" class="paginacao" aria-label="Paginação de produtos"></nav>
+    </section>
+
+    <!-- JSON bruto -->
+    <details class="resposta" id="painel-resposta">
+      <summary>Resposta da API</summary>
+      <pre id="resposta-json">Nenhuma requisição realizada ainda.</pre>
+    </details>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
