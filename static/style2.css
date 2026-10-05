@@ -1,0 +1,73 @@
+:root {
+  --fundo: #f4f6f8;
+  --superficie: #ffffff;
+  --tinta: #18222d;
+  --suave: #5d6b7a;
+  --borda: #dde3ea;
+  --primaria: #b81313;
+  --primaria-escura: #cc1818;
+  --erro: #b3261e;
+  --erro-fundo: #fdecea;
+  --console: #10171f;
+  --console-texto: #b8e6cf;
+  --fonte: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fundo); color: var(--tinta); font: 400 1rem/1.55 var(--fonte); }
+.container { width: min(1080px, 92%); margin: 0 auto; }
+
+.topo { background: var(--primaria); color: #fff; padding: 2rem 0 1.75rem; }
+.topo h1 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -0.02em; }
+.topo p { margin: 0.25rem 0 0; opacity: 0.88; }
+
+main { padding-bottom: 3rem; }
+section { margin-top: 2.5rem; }
+h2 { font-size: 1.35rem; font-weight: 700; margin: 0 0 1rem; }
+
+/* Busca */
+.busca { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.75rem; }
+.busca-produtos { margin-top: 0; margin-bottom: 1.25rem; }
+.busca input { flex: 1 1 240px; padding: 0.75rem 1rem; border: 1px solid var(--borda); border-radius: 8px; font: inherit; background: var(--superficie); }
+.busca input:focus { outline: 2px solid var(--primaria); outline-offset: 1px; }
+
+/* Botões */
+.btn { font: 600 0.95rem var(--fonte); padding: 0.7rem 1.2rem; border-radius: 8px; border: 1px solid transparent; cursor: pointer; transition: background 0.15s, border-color 0.15s; }
+.btn:focus-visible { outline: 2px solid var(--primaria); outline-offset: 2px; }
+.btn-primario { background: var(--primaria); color: #fff; }
+.btn-primario:hover { background: var(--primaria-escura); }
+.btn-secundario { background: var(--superficie); color: var(--tinta); border-color: var(--borda); }
+.btn-secundario:hover:not(:disabled) { border-color: var(--primaria); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-card { width: 100%; margin-top: 1rem; }
+
+/* Cards */
+.grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.card { background: var(--superficie); border: 1px solid var(--borda); border-radius: 10px; padding: 1.1rem 1.25rem; display: flex; flex-direction: column; }
+.card h3 { margin: 0.4rem 0 0.5rem; font-size: 1.1rem; }
+.badge { font-size: 0.78rem; font-weight: 700; color: var(--primaria); background: #e4f3ec; padding: 0.15rem 0.55rem; border-radius: 99px; }
+.campos { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 0.75rem; font-size: 0.92rem; }
+.campos dt { color: var(--suave); }
+.campos dd { margin: 0; overflow-wrap: anywhere; }
+.card .btn-card { margin-top: auto; }
+.card .campos + .btn-card { margin-top: 1rem; }
+
+/* Estados */
+.estado { background: var(--superficie); border: 1px dashed var(--borda); border-radius: 10px; padding: 1.5rem; text-align: center; color: var(--suave); }
+.estado p { margin: 0; }
+.estado-erro { background: var(--erro-fundo); border: 1px solid #f0b8b3; color: var(--erro); font-weight: 500; }
+.spinner { display: inline-block; width: 1.4rem; height: 1.4rem; margin-bottom: 0.5rem; border: 3px solid var(--borda); border-top-color: var(--primaria); border-radius: 50%; animation: gira 0.8s linear infinite; }
+@keyframes gira { to { transform: rotate(360deg); } }
+
+/* Paginação */
+.paginacao { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.25rem; }
+.paginacao:empty { display: none; }
+.pagina-atual { font-weight: 600; color: var(--suave); }
+
+/* Painel JSON */
+.resposta { margin-top: 2.5rem; background: var(--superficie); border: 1px solid var(--borda); border-radius: 10px; padding: 0.9rem 1.25rem; }
+.resposta summary { cursor: pointer; font-weight: 700; }
+.resposta pre { margin: 1rem 0 0; padding: 1rem; background: var(--console); color: var(--console-texto); border-radius: 8px; font: 0.85rem/1.5 var(--mono); max-height: 380px; overflow: auto; white-space: pre-wrap; word-break: break-word; }
+
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 2.5s; } }
+@media (max-width: 520px) { .paginacao { gap: 0.5rem; } .btn { padding: 0.65rem 0.9rem; } }
